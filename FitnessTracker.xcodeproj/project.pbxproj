@@ -10,6 +10,8 @@
 		12FFF8B9CE439E5D1EE1D9D6 /* Pods_FitnessTracker_FitnessTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD176294ADC1B84CCC2B535 /* Pods_FitnessTracker_FitnessTrackerUITests.framework */; };
 		3F0EB6CD564BCD956862F1EB /* Pods_FitnessTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10F8B3F5D66FE800721DFE7D /* Pods_FitnessTrackerTests.framework */; };
 		40C81B94C9B7C3872F31125A /* Pods_FitnessTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44AAEEA3C43D6B4DFB79E7A0 /* Pods_FitnessTracker.framework */; };
+		49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6FEB263FA220005898F3 /* TrackerController.swift */; };
+		49CF6FEE263FA2B6005898F3 /* RunView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6FED263FA2B6005898F3 /* RunView.storyboard */; };
 		83602516260A685D005AF9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602515260A685D005AF9DA /* AppDelegate.swift */; };
 		83602518260A685D005AF9DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602517260A685D005AF9DA /* SceneDelegate.swift */; };
 		8360251A260A685D005AF9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602519260A685D005AF9DA /* ViewController.swift */; };
@@ -52,6 +54,8 @@
 		295C8EEA787D4E770613D023 /* Pods-FitnessTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTracker.release.xcconfig"; path = "Target Support Files/Pods-FitnessTracker/Pods-FitnessTracker.release.xcconfig"; sourceTree = "<group>"; };
 		4478FD4377333E101195923D /* Pods-FitnessTracker-FitnessTrackerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTracker-FitnessTrackerUITests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTracker-FitnessTrackerUITests/Pods-FitnessTracker-FitnessTrackerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		44AAEEA3C43D6B4DFB79E7A0 /* Pods_FitnessTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FitnessTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CF6FEB263FA220005898F3 /* TrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
+		49CF6FED263FA2B6005898F3 /* RunView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunView.storyboard; sourceTree = "<group>"; };
 		5E91AE1841020A07638172CE /* Pods-FitnessTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTrackerTests/Pods-FitnessTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		83602512260A685D005AF9DA /* FitnessTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83602515260A685D005AF9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 				83633263261CC99C000C1B2B /* Extensions.swift */,
 				83BA2FF726262AFF00F4FCCE /* GroupLeader.storyboard */,
 				83BA2FFF26262B1300F4FCCE /* User.storyboard */,
+				49CF6FEB263FA220005898F3 /* TrackerController.swift */,
+				49CF6FED263FA2B6005898F3 /* RunView.storyboard */,
 			);
 			path = FitnessTracker;
 			sourceTree = "<group>";
@@ -304,6 +310,7 @@
 				83BA2FF326262ADE00F4FCCE /* Admin.storyboard in Resources */,
 				83602525260A685F005AF9DA /* LaunchScreen.storyboard in Resources */,
 				83BA2FF826262AFF00F4FCCE /* GroupLeader.storyboard in Resources */,
+				49CF6FEE263FA2B6005898F3 /* RunView.storyboard in Resources */,
 				83602522260A685F005AF9DA /* Assets.xcassets in Resources */,
 				8360251D260A685D005AF9DA /* Main.storyboard in Resources */,
 				83BA300026262B1300F4FCCE /* User.storyboard in Resources */,
@@ -458,6 +465,7 @@
 				83602518260A685D005AF9DA /* SceneDelegate.swift in Sources */,
 				83602558260A6C7F005AF9DA /* Database.swift in Sources */,
 				83602520260A685D005AF9DA /* FitnessTracker.xcdatamodeld in Sources */,
+				49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */,
 				83633264261CC99C000C1B2B /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
