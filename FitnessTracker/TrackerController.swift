@@ -125,6 +125,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
     @objc func eachSecond(timer: Timer) {
         seconds += 1
         
+        
         timeLabel.text = String(seconds) + " s"
         
         milesDistance = distance * milesConversionFactor
