@@ -37,7 +37,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hello there")
+        print("TrackerController view loaded")
         // Do any additional setup after loading the view.
         
         locationManager = CLLocationManager()
@@ -46,6 +46,8 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
 
         
         locationManager?.requestAlwaysAuthorization()
+        
+        //workoutAction.backgroundColor = UIColor(red: 45, green: 77, blue: 123, alpha: 1)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -91,7 +93,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             return
         }
     }
-    
+   
     @IBAction func startTracking(_ sender: Any) {
         print("button clicked!")
         
@@ -120,10 +122,11 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             stopWorkout()
         }
     }
-    
+
     
     @objc func eachSecond(timer: Timer) {
         seconds += 1
+        
         
         timeLabel.text = String(seconds) + " s"
         

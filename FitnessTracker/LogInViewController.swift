@@ -28,8 +28,8 @@ class LogInViewController: UIViewController {
     }
     
     func loadHomeView() {
-        let sb: UIStoryboard = UIStoryboard(name: "Admin", bundle: nil);
-        let mainView = sb.instantiateViewController(identifier: "adminTabBar")
+        let sb: UIStoryboard = UIStoryboard(name: "User", bundle: nil);
+        let mainView = sb.instantiateViewController(identifier: "userTabBar")
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainView)
         
     }
