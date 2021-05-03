@@ -13,12 +13,14 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var signUpUsernameField: UITextField!
     @IBOutlet weak var signUpPasswordField: UITextField!
     @IBOutlet weak var signUpEmailField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         signUpUsernameField.text = ""
         signUpPasswordField.text = ""
         signUpEmailField.text = ""
+        signUpButton.layer.cornerRadius = 5;
         
     }
     
@@ -39,15 +41,17 @@ class SignUpViewController: UIViewController {
     @IBAction func signUp(_sender: UIButton) {
         let spin = UIViewController.displaySpinner(onView: self.view)
         let user = PFUser();
-        user.username = signUpUsernameField.text;
+        user.username = signUpUsernameField.text?.lowercased();
         user.password = signUpPasswordField.text;
         user.email = signUpEmailField.text;
         user.signUpInBackground { (user,error) in
             UIViewController.removeSpinner(spinner: spin)
-            if user != nil {
-                self.loadHomeView();
+            if let error = error {
+                let alert = UIAlertController(title:"Account Error", message:error.localizedDescription, preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil));
+                self.present(alert, animated:true);
             } else {
-                print(error?.localizedDescription)
+                self.loadHomeView();
             }
             
         }
