@@ -37,7 +37,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("hello there")
+        print("TrackerController view loaded")
         // Do any additional setup after loading the view.
         
         locationManager = CLLocationManager()
