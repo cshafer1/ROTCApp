@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dek-ky-E9E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dek-ky-E9E">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -146,18 +146,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17S-BJ-Fpq">
-                                <rect key="frame" x="188" y="765" width="38" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="signIn_sender:" destination="dek-ky-E9E" eventType="touchDown" id="Pue-dS-JWo"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4c-ca-yjo">
                                 <rect key="frame" x="48" y="272" width="184" height="30"/>
                                 <state key="normal" title="Need an account? Sign up."/>
                                 <connections>
                                     <action selector="signUpWith_sender:" destination="dek-ky-E9E" eventType="touchDown" id="J2i-SN-cxh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17S-BJ-Fpq">
+                                <rect key="frame" x="188" y="332" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="signIn_sender:" destination="dek-ky-E9E" eventType="touchDown" id="Pue-dS-JWo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,7 +170,6 @@
                             <constraint firstItem="OpD-XT-1DP" firstAttribute="top" secondItem="x8G-aB-ZUk" secondAttribute="top" constant="60" id="5tv-6S-kFj"/>
                             <constraint firstItem="OpD-XT-1DP" firstAttribute="leading" secondItem="x8G-aB-ZUk" secondAttribute="leading" constant="48" id="C3P-fN-ujz"/>
                             <constraint firstItem="Q7u-6J-Vc2" firstAttribute="top" secondItem="O0h-bk-HgJ" secondAttribute="bottom" constant="8" id="Csa-pq-Gaz"/>
-                            <constraint firstItem="x8G-aB-ZUk" firstAttribute="bottom" secondItem="17S-BJ-Fpq" secondAttribute="bottom" constant="67" id="Hva-pq-T9H"/>
                             <constraint firstItem="O0h-bk-HgJ" firstAttribute="top" secondItem="KIt-El-vBK" secondAttribute="bottom" constant="34" id="PZp-X1-8Ut"/>
                             <constraint firstItem="O0h-bk-HgJ" firstAttribute="leading" secondItem="Q7u-6J-Vc2" secondAttribute="leading" id="Qgg-YS-VwM"/>
                             <constraint firstItem="m4c-ca-yjo" firstAttribute="leading" secondItem="Q7u-6J-Vc2" secondAttribute="leading" id="TJn-yC-eQP"/>
@@ -178,6 +177,7 @@
                             <constraint firstItem="OpD-XT-1DP" firstAttribute="leading" secondItem="KIt-El-vBK" secondAttribute="leading" id="ooP-DX-ozS"/>
                             <constraint firstItem="x8G-aB-ZUk" firstAttribute="trailing" secondItem="KIt-El-vBK" secondAttribute="trailing" constant="191" id="ql6-LL-p3U"/>
                             <constraint firstItem="m4c-ca-yjo" firstAttribute="top" secondItem="Q7u-6J-Vc2" secondAttribute="bottom" constant="8" id="tg1-li-m3O"/>
+                            <constraint firstItem="x8G-aB-ZUk" firstAttribute="bottom" secondItem="17S-BJ-Fpq" secondAttribute="bottom" constant="500" id="zsP-xD-rp1"/>
                         </constraints>
                     </view>
                     <connections>

@@ -91,7 +91,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             return
         }
     }
-    
+   
     @IBAction func startTracking(_ sender: Any) {
         print("button clicked!")
         
@@ -120,7 +120,36 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             stopWorkout()
         }
     }
-    
+    /*
+    @IBAction func startTracking(_ sender: Any) {
+        print("button clicked!")
+        
+        
+        if trainingHasBegun == false {
+            trainingHasBegun = true
+            seconds = 0.0
+            distance = 0.0
+            runDistance = 0.05 // pull this value from database
+            
+            timer = Timer.scheduledTimer(timeInterval: 1,
+                                         target: self,
+                                         selector: #selector(self.eachSecond),
+                                         userInfo: nil,
+                                         repeats: true)
+            
+            locationManager?.distanceFilter = distanceInterval
+            startLocationUpdates()
+            
+            trainingHasBegun = true
+            
+            
+            
+        } else {
+            trainingHasBegun = false
+            stopWorkout()
+        }
+    }
+    */
     
     @objc func eachSecond(timer: Timer) {
         seconds += 1
