@@ -13,6 +13,7 @@
 		4959C401263FC9E600545F69 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4959C400263FC9E600545F69 /* WorkoutController.swift */; };
 		49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6FEB263FA220005898F3 /* TrackerController.swift */; };
 		49CF6FEE263FA2B6005898F3 /* RunView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6FED263FA2B6005898F3 /* RunView.storyboard */; };
+		831A09C626402C910098695A /* TabSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A09C526402C910098695A /* TabSwitchViewController.swift */; };
 		83602516260A685D005AF9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602515260A685D005AF9DA /* AppDelegate.swift */; };
 		83602518260A685D005AF9DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602517260A685D005AF9DA /* SceneDelegate.swift */; };
 		8360251A260A685D005AF9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602519260A685D005AF9DA /* ViewController.swift */; };
@@ -59,6 +60,7 @@
 		49CF6FEB263FA220005898F3 /* TrackerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerController.swift; sourceTree = "<group>"; };
 		49CF6FED263FA2B6005898F3 /* RunView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunView.storyboard; sourceTree = "<group>"; };
 		5E91AE1841020A07638172CE /* Pods-FitnessTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTrackerTests/Pods-FitnessTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		831A09C526402C910098695A /* TabSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwitchViewController.swift; sourceTree = "<group>"; };
 		83602512260A685D005AF9DA /* FitnessTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83602515260A685D005AF9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83602517260A685D005AF9DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				49CF6FEB263FA220005898F3 /* TrackerController.swift */,
 				49CF6FED263FA2B6005898F3 /* RunView.storyboard */,
 				4959C400263FC9E600545F69 /* WorkoutController.swift */,
+				831A09C526402C910098695A /* TabSwitchViewController.swift */,
 			);
 			path = FitnessTracker;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */,
 				83633264261CC99C000C1B2B /* Extensions.swift in Sources */,
 				4959C401263FC9E600545F69 /* WorkoutController.swift in Sources */,
+				831A09C626402C910098695A /* TabSwitchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

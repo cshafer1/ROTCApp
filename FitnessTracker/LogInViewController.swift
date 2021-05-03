@@ -12,11 +12,15 @@ class LogInViewController: UIViewController {
 
     @IBOutlet weak var signInUsernameField: UITextField!
     @IBOutlet weak var signInPasswordField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         signInUsernameField.text = ""
         signInPasswordField.text = ""
+        signUpButton.layer.cornerRadius = 5;
+        loginButton.layer.cornerRadius = 5;
         
     }
     
@@ -36,7 +40,7 @@ class LogInViewController: UIViewController {
     
     @IBAction func signIn(_sender: UIButton) {
         let spin = UIViewController.displaySpinner(onView: self.view)
-        PFUser.logInWithUsername(inBackground: signInUsernameField.text!, password: signInPasswordField.text!) { (user,error) in
+        PFUser.logInWithUsername(inBackground: signInUsernameField.text!.lowercased(), password: signInPasswordField.text!) { (user,error) in
             UIViewController.removeSpinner(spinner: spin)
             if user != nil {
                 self.loadHomeView();
