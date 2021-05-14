@@ -11,7 +11,7 @@ import CoreData
 import Parse
 
 
-class WorkoutController: UIViewController, UIApplicationDelegate {
+class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,7 @@ class WorkoutController: UIViewController, UIApplicationDelegate {
         print("WorkoutController view loaded")
         // Do any additional setup after loading the view.
         
+        initializeHideKeyboard()
         loadWorkout()
         
         
@@ -29,6 +30,7 @@ class WorkoutController: UIViewController, UIApplicationDelegate {
         db.saveInstallationObject()
         db.queryFirstObject(predicateStr:"netid='jbailey7'",className:"Workouts",callback:workoutCallback(obj:error:))
     }
+    
     
     
     /*
@@ -49,22 +51,72 @@ class WorkoutController: UIViewController, UIApplicationDelegate {
             var yVal = 200
             
             for exercise in w {
-                print(exercise)
-                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 374, height: 113))
+                let label = UILabel(frame: CGRect(x: 0, y: 0, width: 374, height: 80))
                 label.center = CGPoint(x: xVal, y: yVal)
                 label.textAlignment = .center
+                
                 label.text = exercise as? String
-                label.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
-                label.font = label.font.withSize(65)
-                label.adjustsFontSizeToFitWidth = true
-                label.layer.cornerRadius = 35
+                //label.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+                label.font = label.font.withSize(30)
+                label.textColor = UIColor.black
+                label.layer.borderColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+                label.layer.borderWidth = 3.0
+                //label.adjustsFontSizeToFitWidth = true
+                //label.layer.cornerRadius = 35
                 label.layer.masksToBounds = true
 
                 self.view.addSubview(label)
                 
                 //xVal += 50
-                yVal += 150
+                yVal += 100
             }
+            
+            yVal -= 35
+            
+            let header = UILabel(frame: CGRect(x: 0, y: 0, width: 374, height: 28))
+            header.center = CGPoint(x: xVal, y: yVal)
+            header.text = "(performed)"
+            header.font = header.font.withSize(22)
+            header.textColor = UIColor.black
+            self.view.addSubview(header)
+            
+            yVal += 44
+            
+            
+            for exercise in w {
+                let input = UITextField(frame: CGRect(x: 0, y: 0, width: 374, height: 50))
+                input.placeholder = exercise as? String
+                input.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+                input.center = CGPoint(x: xVal, y: yVal)
+                input.font = input.font?.withSize(30)
+                
+                            
+                self.view.addSubview(input)
+                
+                yVal += 80
+            }
+            
+            let submit = UIButton(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
+            submit.setTitle("submit", for: .normal)
+            
+            
+            //btn.titleLabel?.font = .systemFont(ofSize: 12)
+            submit.titleLabel?.font = .systemFont(ofSize: 30)
+            submit.layer.cornerRadius = 20
+
+            //myButton.titleLabel?.font =  UIFont(name: YourfontName, size: 20)
+
+            submit.center = CGPoint(x: xVal, y: yVal)
+            submit.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+            submit.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
+            
+        
+            
+            
+            self.view.addSubview(submit)
+            
+            
+            
             print("\n\n\n")
 
             //func object(forKey key: String) -> Any?
@@ -72,6 +124,24 @@ class WorkoutController: UIViewController, UIApplicationDelegate {
         } else {
             print(error?.localizedDescription)
         }
+        
+    }
+    
+    @objc func submitAction() {
+        
+        
+    }
+    
+    func initializeHideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(dismissMyKeyboard)
+        )
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissMyKeyboard() {
+        view.endEditing(true)
     }
 }
 
