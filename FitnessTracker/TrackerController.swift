@@ -9,6 +9,7 @@ import UIKit
 import HealthKit
 import CoreLocation
 import AVFoundation
+import Parse
 
 
 class TrackerController: UIViewController, CLLocationManagerDelegate{
@@ -102,7 +103,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             trainingHasBegun = true
             seconds = 0.0
             distance = 0.0
-            runDistance = 0.05 // pull this value from database
+            runDistance = 0.00 // pull this value from database
             
             timer = Timer.scheduledTimer(timeInterval: 1,
                                          target: self,
@@ -163,6 +164,27 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         
         synthesizer.speak(utterance)
         print("finished speaking")
+        /*
+        let player = PFObject(className: "Player")
+        player.setObject("John", forKey: "Name")
+        player.setObject(1230, forKey: "Score")
+        player.saveInBackgroundWithBlock { (succeeded, error) -> Void in
+          if succeeded {
+            println("Object Uploaded")
+          } else {
+            println("Error: \(error) \(error.userInfo!)")
+          }
+        */
+        let db = Database()
+        let runResult = PFObject(className: "RunResult")
+        let resultArray = [distance, seconds, miletime]
+        runResult.setObject("jbailey7", forKey: "netid")
+        runResult.setObject(resultArray, forKey: "runresult")
+        db.saveObject(obj: runResult)
+        print("uploaded: ")
+        print(runResult)
+        //runResult.setObect("netid", forKey: "jbailey7")
+        //runResult.setObject("result", forKey: )
     }
     
     func stopWorkout() {

@@ -45,7 +45,7 @@ class WorkoutController: UIViewController, UIApplicationDelegate {
             print(w)
             
             
-            var xVal = 200
+            let xVal = 200
             var yVal = 200
             
             for exercise in w {
