@@ -4,27 +4,91 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Add Group-->
         <scene sceneID="MJa-mP-YBC">
             <objects>
-                <viewController id="Lnt-0b-Zyf" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wdA-JE-Yvy">
+                <viewController id="Lnt-0b-Zyf" customClass="CreateGroupViewController" customModule="FitnessTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wdA-JE-Yvy" userLabel="createGroupView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mme-lp-pt9">
+                                <rect key="frame" x="35" y="195.5" width="101" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Leader:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ma-vk-g9p">
+                                <rect key="frame" x="35" y="257" width="109" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFg-DU-gSz" userLabel="groupNameField">
+                                <rect key="frame" x="144" y="188.5" width="206" height="34.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xgL-LF-MbE" userLabel="groupLeaderField">
+                                <rect key="frame" x="144" y="250" width="206" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utC-My-uRK" userLabel="groupCreateButton">
+                                <rect key="frame" x="161" y="593" width="92" height="30"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Create Group">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="createGroupWith_sender:" destination="Lnt-0b-Zyf" eventType="touchUpInside" id="maM-ge-QoR"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOW-c1-aFQ">
+                                <rect key="frame" x="113" y="91" width="189" height="40"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="RrO-sD-26x"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.4549019608" green="0.67843137249999996" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="dOW-c1-aFQ" firstAttribute="centerX" secondItem="wdA-JE-Yvy" secondAttribute="centerX" constant="0.5" id="3YZ-0c-fhM"/>
+                            <constraint firstItem="9Ma-vk-g9p" firstAttribute="centerY" secondItem="xgL-LF-MbE" secondAttribute="centerY" id="5rq-cD-Ldd"/>
+                            <constraint firstItem="ZFg-DU-gSz" firstAttribute="top" secondItem="dOW-c1-aFQ" secondAttribute="bottom" constant="57.5" id="ACr-8p-vtX"/>
+                            <constraint firstItem="ZFg-DU-gSz" firstAttribute="trailing" secondItem="xgL-LF-MbE" secondAttribute="trailing" id="Hjl-1U-kik"/>
+                            <constraint firstItem="9Ma-vk-g9p" firstAttribute="top" secondItem="Mme-lp-pt9" secondAttribute="bottom" constant="41" id="S2P-aM-15J"/>
+                            <constraint firstItem="xgL-LF-MbE" firstAttribute="top" secondItem="ZFg-DU-gSz" secondAttribute="bottom" constant="28" id="Sa3-7H-Hda"/>
+                            <constraint firstItem="ZFg-DU-gSz" firstAttribute="leading" secondItem="Mme-lp-pt9" secondAttribute="trailing" constant="8" symbolic="YES" id="T3h-nX-G7u"/>
+                            <constraint firstItem="Mme-lp-pt9" firstAttribute="leading" secondItem="9Ma-vk-g9p" secondAttribute="leading" id="WKr-IA-eb3"/>
+                            <constraint firstItem="dOW-c1-aFQ" firstAttribute="top" secondItem="RrO-sD-26x" secondAttribute="top" constant="47" id="Y3U-bq-F6K"/>
+                            <constraint firstItem="dOW-c1-aFQ" firstAttribute="centerX" secondItem="utC-My-uRK" secondAttribute="centerX" constant="0.5" id="bAg-MA-QdZ"/>
+                            <constraint firstItem="ZFg-DU-gSz" firstAttribute="leading" secondItem="xgL-LF-MbE" secondAttribute="leading" id="hsi-6K-wYD"/>
+                            <constraint firstItem="Mme-lp-pt9" firstAttribute="top" secondItem="dOW-c1-aFQ" secondAttribute="bottom" constant="64.5" id="i2O-BT-xRL"/>
+                            <constraint firstItem="Mme-lp-pt9" firstAttribute="leading" secondItem="RrO-sD-26x" secondAttribute="leading" constant="35" id="jff-XU-A9z"/>
+                            <constraint firstItem="RrO-sD-26x" firstAttribute="bottom" secondItem="9Ma-vk-g9p" secondAttribute="bottom" constant="535" id="keR-oU-TWj"/>
+                            <constraint firstItem="RrO-sD-26x" firstAttribute="bottom" secondItem="utC-My-uRK" secondAttribute="bottom" constant="190" id="nIh-cV-UmJ"/>
+                            <constraint firstItem="RrO-sD-26x" firstAttribute="trailing" secondItem="ZFg-DU-gSz" secondAttribute="trailing" constant="64" id="nRQ-mp-8vH"/>
+                            <constraint firstItem="Mme-lp-pt9" firstAttribute="centerY" secondItem="ZFg-DU-gSz" secondAttribute="centerY" id="sM5-1X-jwG"/>
+                            <constraint firstItem="dOW-c1-aFQ" firstAttribute="leading" secondItem="RrO-sD-26x" secondAttribute="leading" constant="113" id="z1L-EK-fgP"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Pjd-0a-1R4"/>
+                    <tabBarItem key="tabBarItem" title="Add Group" id="Pjd-0a-1R4"/>
+                    <connections>
+                        <outlet property="createGroupButton" destination="utC-My-uRK" id="BEy-KR-IKT"/>
+                        <outlet property="groupLeaderField" destination="xgL-LF-MbE" id="G5P-UX-ibF"/>
+                        <outlet property="groupNameField" destination="ZFg-DU-gSz" id="eqf-QW-swB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dCw-m8-SLM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-362" y="102"/>
+            <point key="canvasLocation" x="-362.31884057971018" y="101.78571428571428"/>
         </scene>
-        <!--Item 1-->
+        <!--Swap-->
         <scene sceneID="CPt-Wl-bj9">
             <objects>
                 <viewController id="SKd-1L-daq" customClass="TabSwitchViewController" customModule="FitnessTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,11 +98,74 @@
                         <viewLayoutGuide key="safeArea" id="R05-7y-fqM"/>
                         <color key="backgroundColor" red="0.4549019608" green="0.67843137249999996" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="qB7-uT-hQl"/>
+                    <tabBarItem key="tabBarItem" title="Swap" id="qB7-uT-hQl" userLabel="Swap"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qsk-dI-P53" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-362" y="747"/>
+        </scene>
+        <!--Add Workout-->
+        <scene sceneID="B6d-MV-Xd7">
+            <objects>
+                <viewController id="siL-ty-vA5" customClass="AddWorkoutViewController" customModule="FitnessTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DL3-Cf-Cg1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDe-UN-Zf2">
+                                <rect key="frame" x="89" y="112" width="236" height="40"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nm-QU-die">
+                                <rect key="frame" x="52" y="226" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bfd-zx-7eS" userLabel="workoutNameField">
+                                <rect key="frame" x="175" y="219" width="163" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOi-gR-c5X" userLabel="addWorkoutButton">
+                                <rect key="frame" x="145" y="407" width="125" height="30"/>
+                                <color key="backgroundColor" red="0.1764705882" green="0.30196078430000001" blue="0.4823529412" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add Workout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addWorkoutWith_sender:" destination="siL-ty-vA5" eventType="touchUpInside" id="NKn-JD-fXJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aNQ-z6-R2i"/>
+                        <color key="backgroundColor" red="0.4549019608" green="0.67843137249999996" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="aNQ-z6-R2i" firstAttribute="trailing" secondItem="bfd-zx-7eS" secondAttribute="trailing" constant="76" id="7VB-1a-3b8"/>
+                            <constraint firstItem="aDe-UN-Zf2" firstAttribute="leading" secondItem="aNQ-z6-R2i" secondAttribute="leading" constant="89" id="IpS-h4-PDr"/>
+                            <constraint firstItem="4nm-QU-die" firstAttribute="leading" secondItem="aNQ-z6-R2i" secondAttribute="leading" constant="52" id="J62-8B-qIX"/>
+                            <constraint firstItem="aDe-UN-Zf2" firstAttribute="centerX" secondItem="DL3-Cf-Cg1" secondAttribute="centerX" id="Kdv-kS-yPF"/>
+                            <constraint firstItem="4nm-QU-die" firstAttribute="top" secondItem="aDe-UN-Zf2" secondAttribute="bottom" constant="74" id="N52-dF-f7h"/>
+                            <constraint firstItem="bfd-zx-7eS" firstAttribute="leading" secondItem="4nm-QU-die" secondAttribute="trailing" constant="8" symbolic="YES" id="Npm-Mt-TA1"/>
+                            <constraint firstItem="aDe-UN-Zf2" firstAttribute="centerX" secondItem="cOi-gR-c5X" secondAttribute="centerX" id="XHK-RX-W5x"/>
+                            <constraint firstItem="cOi-gR-c5X" firstAttribute="leading" secondItem="aNQ-z6-R2i" secondAttribute="leading" constant="145" id="cQo-tQ-5vq"/>
+                            <constraint firstItem="bfd-zx-7eS" firstAttribute="top" secondItem="aDe-UN-Zf2" secondAttribute="bottom" constant="67" id="gUh-nS-QjZ"/>
+                            <constraint firstItem="aNQ-z6-R2i" firstAttribute="bottom" secondItem="cOi-gR-c5X" secondAttribute="bottom" constant="376" id="kJq-gX-BvG"/>
+                            <constraint firstItem="4nm-QU-die" firstAttribute="centerY" secondItem="bfd-zx-7eS" secondAttribute="centerY" id="nzS-oP-UBc"/>
+                            <constraint firstItem="aDe-UN-Zf2" firstAttribute="top" secondItem="aNQ-z6-R2i" secondAttribute="top" constant="68" id="t9B-bE-ysp"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Add Workout" id="QJe-Xx-9YJ"/>
+                    <connections>
+                        <outlet property="createWorkoutButton" destination="cOi-gR-c5X" id="beE-Lb-xXB"/>
+                        <outlet property="workoutNameField" destination="bfd-zx-7eS" id="GJ8-Hr-8UC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jfh-tb-nQ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1171.0144927536232" y="750.66964285714278"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="axn-xC-1I1">
@@ -50,8 +177,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="SKd-1L-daq" kind="relationship" relationship="viewControllers" id="cGl-Ec-458"/>
                         <segue destination="Lnt-0b-Zyf" kind="relationship" relationship="viewControllers" id="glS-r1-x99"/>
+                        <segue destination="siL-ty-vA5" kind="relationship" relationship="viewControllers" id="Hm6-pE-6eQ"/>
+                        <segue destination="SKd-1L-daq" kind="relationship" relationship="viewControllers" id="cGl-Ec-458"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ov2-qS-xSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -59,9 +187,4 @@
             <point key="canvasLocation" x="-362" y="747"/>
         </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

@@ -14,6 +14,13 @@
 		49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49CF6FEB263FA220005898F3 /* TrackerController.swift */; };
 		49CF6FEE263FA2B6005898F3 /* RunView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49CF6FED263FA2B6005898F3 /* RunView.storyboard */; };
 		831A09C626402C910098695A /* TabSwitchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831A09C526402C910098695A /* TabSwitchViewController.swift */; };
+		8355B1C7264FAD4D0095DB4E /* CreateGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1C6264FAD4D0095DB4E /* CreateGroupViewController.swift */; };
+		8355B1CC264FB4550095DB4E /* AddWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1CB264FB4550095DB4E /* AddWorkoutViewController.swift */; };
+		8355B1D1264FC9CB0095DB4E /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1D0264FC9CB0095DB4E /* AddUserViewController.swift */; };
+		8355B1D6264FE1EA0095DB4E /* WorkoutSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1D5264FE1EA0095DB4E /* WorkoutSelectorViewController.swift */; };
+		8355B1DB264FE28E0095DB4E /* AssignRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1DA264FE28E0095DB4E /* AssignRunViewController.swift */; };
+		8355B1E0264FE29C0095DB4E /* AssignLiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1DF264FE29C0095DB4E /* AssignLiftViewController.swift */; };
+		8355B1E5264FFC490095DB4E /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8355B1E4264FFC490095DB4E /* ResultsViewController.swift */; };
 		83602516260A685D005AF9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602515260A685D005AF9DA /* AppDelegate.swift */; };
 		83602518260A685D005AF9DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602517260A685D005AF9DA /* SceneDelegate.swift */; };
 		8360251A260A685D005AF9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83602519260A685D005AF9DA /* ViewController.swift */; };
@@ -61,6 +68,13 @@
 		49CF6FED263FA2B6005898F3 /* RunView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RunView.storyboard; sourceTree = "<group>"; };
 		5E91AE1841020A07638172CE /* Pods-FitnessTrackerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FitnessTrackerTests.debug.xcconfig"; path = "Target Support Files/Pods-FitnessTrackerTests/Pods-FitnessTrackerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		831A09C526402C910098695A /* TabSwitchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSwitchViewController.swift; sourceTree = "<group>"; };
+		8355B1C6264FAD4D0095DB4E /* CreateGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupViewController.swift; sourceTree = "<group>"; };
+		8355B1CB264FB4550095DB4E /* AddWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWorkoutViewController.swift; sourceTree = "<group>"; };
+		8355B1D0264FC9CB0095DB4E /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
+		8355B1D5264FE1EA0095DB4E /* WorkoutSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectorViewController.swift; sourceTree = "<group>"; };
+		8355B1DA264FE28E0095DB4E /* AssignRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignRunViewController.swift; sourceTree = "<group>"; };
+		8355B1DF264FE29C0095DB4E /* AssignLiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignLiftViewController.swift; sourceTree = "<group>"; };
+		8355B1E4264FFC490095DB4E /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		83602512260A685D005AF9DA /* FitnessTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitnessTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83602515260A685D005AF9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83602517260A685D005AF9DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -182,6 +196,13 @@
 				49CF6FED263FA2B6005898F3 /* RunView.storyboard */,
 				4959C400263FC9E600545F69 /* WorkoutController.swift */,
 				831A09C526402C910098695A /* TabSwitchViewController.swift */,
+				8355B1C6264FAD4D0095DB4E /* CreateGroupViewController.swift */,
+				8355B1CB264FB4550095DB4E /* AddWorkoutViewController.swift */,
+				8355B1D0264FC9CB0095DB4E /* AddUserViewController.swift */,
+				8355B1D5264FE1EA0095DB4E /* WorkoutSelectorViewController.swift */,
+				8355B1DA264FE28E0095DB4E /* AssignRunViewController.swift */,
+				8355B1DF264FE29C0095DB4E /* AssignLiftViewController.swift */,
+				8355B1E4264FFC490095DB4E /* ResultsViewController.swift */,
 			);
 			path = FitnessTracker;
 			sourceTree = "<group>";
@@ -465,14 +486,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8360251A260A685D005AF9DA /* ViewController.swift in Sources */,
+				8355B1DB264FE28E0095DB4E /* AssignRunViewController.swift in Sources */,
 				83602516260A685D005AF9DA /* AppDelegate.swift in Sources */,
+				8355B1C7264FAD4D0095DB4E /* CreateGroupViewController.swift in Sources */,
 				83F600A62639CC36005C9BF0 /* SignUpViewController.swift in Sources */,
+				8355B1E5264FFC490095DB4E /* ResultsViewController.swift in Sources */,
 				8363325F261CC799000C1B2B /* LogInViewController.swift in Sources */,
 				83602518260A685D005AF9DA /* SceneDelegate.swift in Sources */,
 				83602558260A6C7F005AF9DA /* Database.swift in Sources */,
+				8355B1E0264FE29C0095DB4E /* AssignLiftViewController.swift in Sources */,
 				83602520260A685D005AF9DA /* FitnessTracker.xcdatamodeld in Sources */,
 				49CF6FEC263FA220005898F3 /* TrackerController.swift in Sources */,
 				83633264261CC99C000C1B2B /* Extensions.swift in Sources */,
+				8355B1CC264FB4550095DB4E /* AddWorkoutViewController.swift in Sources */,
+				8355B1D6264FE1EA0095DB4E /* WorkoutSelectorViewController.swift in Sources */,
+				8355B1D1264FC9CB0095DB4E /* AddUserViewController.swift in Sources */,
 				4959C401263FC9E600545F69 /* WorkoutController.swift in Sources */,
 				831A09C626402C910098695A /* TabSwitchViewController.swift in Sources */,
 			);

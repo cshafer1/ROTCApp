@@ -67,7 +67,7 @@ class TabSwitchViewController: UIViewController {
     
     @objc func groupButton(sender: UIButton){
         let sb: UIStoryboard = UIStoryboard(name: "GroupLeader", bundle: nil);
-        let mainView = sb.instantiateViewController(identifier: "groupLeaderTabBar")
+        let mainView = sb.instantiateViewController(identifier: "groupTabBar")
         (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(mainView)
     }
     

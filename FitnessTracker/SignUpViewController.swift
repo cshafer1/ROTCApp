@@ -44,6 +44,7 @@ class SignUpViewController: UIViewController {
         user.username = signUpUsernameField.text?.lowercased();
         user.password = signUpPasswordField.text;
         user.email = signUpEmailField.text;
+        user["permission"] = 2;
         user.signUpInBackground { (user,error) in
             UIViewController.removeSpinner(spinner: spin)
             if let error = error {
