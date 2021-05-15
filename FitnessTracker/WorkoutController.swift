@@ -55,18 +55,14 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
                 label.textAlignment = .center
                 
                 label.text = exercise as? String
-                //label.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
                 label.font = label.font.withSize(30)
                 label.textColor = UIColor.black
                 label.layer.borderColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
                 label.layer.borderWidth = 3.0
-                //label.adjustsFontSizeToFitWidth = true
-                //label.layer.cornerRadius = 35
                 label.layer.masksToBounds = true
 
                 self.view.addSubview(label)
                 
-                //xVal += 50
                 yVal += 100
             }
             
@@ -99,12 +95,8 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
             let submit = UIButton(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
             submit.setTitle("submit", for: .normal)
             
-            
-            //btn.titleLabel?.font = .systemFont(ofSize: 12)
             submit.titleLabel?.font = .systemFont(ofSize: 30)
             submit.layer.cornerRadius = 20
-
-            //myButton.titleLabel?.font =  UIFont(name: YourfontName, size: 20)
 
             submit.center = CGPoint(x: xVal, y: yVal)
             submit.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
@@ -128,18 +120,6 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
             results.append(String?(label.text ?? "n/a") ?? "n/a")
         }
         
-        /*
-         PFUser.currentUser()!.fetchInBackgroundWithBlock({ (currentUser: PFObject?, error: NSError?) -> Void in
-
-         // Update your data
-
-                             if let user = currentUser as? PFUser {
-
-                                 var email = user.email
-
-                             }
-                         })
-         */
         print("user?: ")
         print(PFUser.current()!.username!)
         
@@ -151,22 +131,7 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
         
         print("wrote liferesult: ")
         print(results)
-        /*
-        class ViewController: UIViewController {
 
-            @IBAction func showAlertButtonTapped(_ sender: UIButton) {
-
-                // create the alert
-                let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
-
-                // add an action (button)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
-                // show the alert
-                self.present(alert, animated: true, completion: nil)
-            }
-        }
-        */
         let alert = UIAlertController(title: "Success!", message: "Workout has been submitted.", preferredStyle: UIAlertController.Style.alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

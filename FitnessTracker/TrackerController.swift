@@ -31,6 +31,8 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
     var miletime = 0.0
     var metersPerMile = 1609.34
     var runDistance = 0.0 // in miles
+    var currUser = String(PFUser.current()!.username!)
+    var desiredPace = ""
 
     
     lazy var timer = Timer()
@@ -39,6 +41,8 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         
         print("TrackerController view loaded")
+        
+        loadWorkout()
         // Do any additional setup after loading the view.
         
         locationManager = CLLocationManager()
@@ -48,7 +52,6 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         
         locationManager?.requestAlwaysAuthorization()
         
-        //workoutAction.backgroundColor = UIColor(red: 45, green: 77, blue: 123, alpha: 1)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -103,7 +106,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
             trainingHasBegun = true
             seconds = 0.0
             distance = 0.0
-            runDistance = 0.00 // pull this value from database
+            //runDistance = 0.00 // change this value to 0.00 to test easier without having to move
             
             timer = Timer.scheduledTimer(timeInterval: 1,
                                          target: self,
@@ -133,6 +136,9 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         
         milesDistance = distance * milesConversionFactor
         let milesString: String = String(format: "%.2f mi", milesDistance)
+        
+        print("runDistance: ")
+        print(runDistance)
         
         if (milesDistance >= runDistance) {
             print("distance > runDistance")
@@ -168,7 +174,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         let db = Database()
         let runResult = PFObject(className: "RunResult")
         let resultArray = [distance, seconds, miletime]
-        runResult.setObject("jbailey7", forKey: "netid")
+        runResult.setObject(currUser, forKey: "netid")
         runResult.setObject(resultArray, forKey: "runresult")
         db.saveObject(obj: runResult)
         print("uploaded: ")
@@ -179,8 +185,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
-        //runResult.setObect("netid", forKey: "jbailey7")
-        //runResult.setObject("result", forKey: )
+
     }
     
     func stopWorkout() {
@@ -192,6 +197,60 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
     func stopTimer() {
         timer.invalidate()
         print("Timer stopped")
+    }
+    
+    func loadWorkout() {
+        let db = Database()
+        db.saveInstallationObject()
+        //db.queryFirstObject(predicateStr:"netid='jbailey7'",className:"Workouts",callback:workoutCallback(obj:error:))
+        db.queryFirstObject(predicateStr:"netid='\(currUser)'",className:"Runs",callback:workoutCallback(obj:error:))
+
+    }
+    
+    func workoutCallback(obj: PFObject?, error:Error?) -> Void {
+        if(error == nil){
+            print(obj)
+            let w = (obj?["RunData"])! as! Array<Any>
+        
+            
+            runDistance = w[0] as! Double
+            desiredPace = w[1] as! String
+            let xVal = 200
+            var yVal = 200
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 374, height: 80))
+            label.center = CGPoint(x: xVal, y: yVal)
+            label.textAlignment = .center
+            
+            label.text = "distance: " + String(runDistance) + " mi"
+            label.font = label.font.withSize(30)
+            label.textColor = UIColor.black
+            label.layer.borderColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+            label.layer.borderWidth = 3.0
+
+            label.layer.masksToBounds = true
+
+            self.view.addSubview(label)
+            
+            yVal += 100
+            
+            let label2 = UILabel(frame: CGRect(x: 0, y: 0, width: 374, height: 80))
+            label2.center = CGPoint(x: xVal, y: yVal)
+            label2.textAlignment = .center
+            
+            label2.text = "pace: " + desiredPace + " min/mi"
+            label2.font = label.font.withSize(30)
+            label2.textColor = UIColor.black
+            label2.layer.borderColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
+            label2.layer.borderWidth = 3.0
+            label2.layer.masksToBounds = true
+
+            self.view.addSubview(label2)
+
+        } else {
+            print(error?.localizedDescription)
+        }
+        
     }
 }
 
