@@ -164,17 +164,7 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         
         synthesizer.speak(utterance)
         print("finished speaking")
-        /*
-        let player = PFObject(className: "Player")
-        player.setObject("John", forKey: "Name")
-        player.setObject(1230, forKey: "Score")
-        player.saveInBackgroundWithBlock { (succeeded, error) -> Void in
-          if succeeded {
-            println("Object Uploaded")
-          } else {
-            println("Error: \(error) \(error.userInfo!)")
-          }
-        */
+
         let db = Database()
         let runResult = PFObject(className: "RunResult")
         let resultArray = [distance, seconds, miletime]
@@ -183,6 +173,12 @@ class TrackerController: UIViewController, CLLocationManagerDelegate{
         db.saveObject(obj: runResult)
         print("uploaded: ")
         print(runResult)
+        
+        let alert = UIAlertController(title: "Success!", message: "Run has been submitted.", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
         //runResult.setObect("netid", forKey: "jbailey7")
         //runResult.setObject("result", forKey: )
     }

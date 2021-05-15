@@ -13,8 +13,14 @@ import Parse
 
 class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDelegate {
     
+    var labels = [UITextField]()
+    var currUser = String(PFUser.current()!.username!)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         print("WorkoutController view loaded")
         // Do any additional setup after loading the view.
@@ -28,18 +34,11 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
     func loadWorkout() {
         let db = Database()
         db.saveInstallationObject()
-        db.queryFirstObject(predicateStr:"netid='jbailey7'",className:"Workouts",callback:workoutCallback(obj:error:))
+        //db.queryFirstObject(predicateStr:"netid='jbailey7'",className:"Workouts",callback:workoutCallback(obj:error:))
+        db.queryFirstObject(predicateStr:"netid='\(currUser)'",className:"Workouts",callback:workoutCallback(obj:error:))
+
     }
     
-    
-    
-    /*
-     let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 21))
-     label.center = CGPoint(x: 160, y: 285)
-     label.textAlignment = .center
-     label.text = "I'm a test label"
-     self.view.addSubview(label)
-     */
     func workoutCallback(obj: PFObject?, error:Error?) -> Void {
         if(error == nil){
             print(obj)
@@ -81,8 +80,7 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
             self.view.addSubview(header)
             
             yVal += 44
-            
-            
+
             for exercise in w {
                 let input = UITextField(frame: CGRect(x: 0, y: 0, width: 374, height: 50))
                 input.placeholder = exercise as? String
@@ -94,6 +92,8 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
                 self.view.addSubview(input)
                 
                 yVal += 80
+                
+                labels.append(input)
             }
             
             let submit = UIButton(frame: CGRect(x: 0, y: 0, width: 300, height: 80))
@@ -110,16 +110,10 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
             submit.layer.backgroundColor = UIColor(red: 45/255, green: 77/255, blue: 123/255, alpha: 1.0).cgColor
             submit.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
             
-        
-            
-            
             self.view.addSubview(submit)
-            
-            
             
             print("\n\n\n")
 
-            //func object(forKey key: String) -> Any?
 
         } else {
             print(error?.localizedDescription)
@@ -128,7 +122,56 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
     }
     
     @objc func submitAction() {
+        var results = [String]()
         
+        for label in labels {
+            results.append(String?(label.text ?? "n/a") ?? "n/a")
+        }
+        
+        /*
+         PFUser.currentUser()!.fetchInBackgroundWithBlock({ (currentUser: PFObject?, error: NSError?) -> Void in
+
+         // Update your data
+
+                             if let user = currentUser as? PFUser {
+
+                                 var email = user.email
+
+                             }
+                         })
+         */
+        print("user?: ")
+        print(PFUser.current()!.username!)
+        
+        let db = Database()
+        let liftResult = PFObject(className: "LiftResult")
+        liftResult.setObject(currUser, forKey: "netid")
+        liftResult.setObject(results, forKey: "liftresult")
+        db.saveObject(obj: liftResult)
+        
+        print("wrote liferesult: ")
+        print(results)
+        /*
+        class ViewController: UIViewController {
+
+            @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+
+                // create the alert
+                let alert = UIAlertController(title: "My Title", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
+
+                // add an action (button)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+
+                // show the alert
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        */
+        let alert = UIAlertController(title: "Success!", message: "Workout has been submitted.", preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
         
     }
     
@@ -142,6 +185,21 @@ class WorkoutController: UIViewController, UIApplicationDelegate, UITextFieldDel
     
     @objc func dismissMyKeyboard() {
         view.endEditing(true)
+    }
+    
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }
 
